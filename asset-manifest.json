@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/todo-app-vue/static/css/main.d6d436a8.chunk.css",
+    "main.js": "/todo-app-vue/static/js/main.a2d90f60.chunk.js",
+    "main.js.map": "/todo-app-vue/static/js/main.a2d90f60.chunk.js.map",
+    "runtime-main.js": "/todo-app-vue/static/js/runtime-main.63960803.js",
+    "runtime-main.js.map": "/todo-app-vue/static/js/runtime-main.63960803.js.map",
+    "static/js/2.41893732.chunk.js": "/todo-app-vue/static/js/2.41893732.chunk.js",
+    "static/js/2.41893732.chunk.js.map": "/todo-app-vue/static/js/2.41893732.chunk.js.map",
+    "static/js/3.727537d9.chunk.js": "/todo-app-vue/static/js/3.727537d9.chunk.js",
+    "static/js/3.727537d9.chunk.js.map": "/todo-app-vue/static/js/3.727537d9.chunk.js.map",
+    "static/js/4.4e26830a.chunk.js": "/todo-app-vue/static/js/4.4e26830a.chunk.js",
+    "static/js/4.4e26830a.chunk.js.map": "/todo-app-vue/static/js/4.4e26830a.chunk.js.map",
+    "index.html": "/todo-app-vue/index.html",
+    "static/css/main.d6d436a8.chunk.css.map": "/todo-app-vue/static/css/main.d6d436a8.chunk.css.map",
+    "static/js/2.41893732.chunk.js.LICENSE.txt": "/todo-app-vue/static/js/2.41893732.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.63960803.js",
+    "static/js/2.41893732.chunk.js",
+    "static/css/main.d6d436a8.chunk.css",
+    "static/js/main.a2d90f60.chunk.js"
+  ]
+}

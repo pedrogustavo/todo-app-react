@@ -1,8 +1,9 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import loadable from '@loadable/component'
 
-const Home = loadable(() => import('./views/Home'))
+// const Home = loadable(() => import('./views/Home'))
+// const Binding = loadable(() => import('./components/ComponentClass'))
 const State = loadable(() => import('./views/State'))
 
 function App () {
@@ -10,21 +11,11 @@ function App () {
         <div className='App'>
             <Router>
                 <Switch>
-                    <Route path='/state' component={State} />
-                    <Route path='/' component={Home} />
+                    {/* <Route path='/state' component={State} />
+                    <Route path='/binding' component={Binding} />
+                    <Route path='/' component={Home} /> */}
+                    <Route path='/' component={State} />
                 </Switch>
-                <div>
-                    <nav>
-                        <ul>
-                            <li>
-                                <Link to='/'>Home</Link>
-                            </li>
-                            <li>
-                                <Link to='/state'>State</Link>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
             </Router>
        </div>
   )

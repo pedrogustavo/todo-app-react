@@ -42,11 +42,13 @@ export const todoSlice = createSlice({
             if (item.id === action.payload) item.completed = !item.completed
             return item
         })
+    },
+    removeTask: (state, action) => {
+        state.tasks = state.tasks.filter(item => item.id !== action.payload)
     }
   }
 })
 
-// Action creators are generated for each case reducer function
-export const { addTask, toggleCompleted } = todoSlice.actions
+export const { addTask, toggleCompleted, removeTask } = todoSlice.actions
 
 export default todoSlice.reducer

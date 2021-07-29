@@ -1,30 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const updateStorage = (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value))
+}
+
 export const todoSlice = createSlice({
   name: 'todo',
   initialState: {
-    tasks: [
-        {
-            id: 1,
-            value: 'Instalar create-react-app',
-            completed: true
-        },
-        {
-            id: 2,
-            value: 'Criar componentes na aplicação',
-            completed: true
-        },
-        {
-            id: 3,
-            value: 'Adicionar react-router',
-            completed: false
-        },
-        {
-            id: 4,
-            value: 'Adicionar react-redux',
-            completed: false
-        }
-    ]
+    tasks: localStorage.getItem('tasks') 
+        ? JSON.parse(localStorage.getItem('tasks'))
+        : [
+            {
+                id: 1,
+                value: 'npx create-react-app my-app',
+                completed: true
+            }
+        ]    
   },
   reducers: {
     addTask: (state, action) => {
@@ -35,16 +26,24 @@ export const todoSlice = createSlice({
                 value: action.payload,
                 completed: false
             }
-        ] 
+        ]
+        updateStorage('tasks', state.tasks)
     },
     toggleCompleted: (state, action) => {
         state.tasks = state.tasks.map(item => {
             if (item.id === action.payload) item.completed = !item.completed
             return item
         })
+        updateStorage('tasks', state.tasks)
     },
     removeTask: (state, action) => {
-        state.tasks = state.tasks.filter(item => item.id !== action.payload)
+        state.tasks = state.tasks
+            .filter(item => item.id !== action.payload)
+            .map((item, index) => {
+                item.id = index
+                return item
+            })
+        updateStorage('tasks', state.tasks)
     }
   }
 })

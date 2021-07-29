@@ -7,8 +7,14 @@ body {
 
 #container {
     margin: auto;
-    max-width: 50%;
+    max-width: 60%;
     padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    #container {
+        max-width: 80%;
+    }
 }
 
 #list {
@@ -16,10 +22,16 @@ body {
 }
 
 .list-item {
-    margin-bottom: 10px;
     align-items: center;
     cursor: pointer;
     display: flex;
+    justify-content: space-between;
+    padding: 4px 2px;
+    transition: 0.4s;
+}
+
+.list-item:hover {
+    background-color: #23242d;
 }
 
 .list-item p {
@@ -37,12 +49,26 @@ body {
     margin-right: 5px;
 }
 
-#new-item-box {
+.list-item-content {
     display: flex;
 }
 
+.list-item-remove {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.list-item-remove .icon {
+    width: 14px;
+    margin-left: 10px;
+    color: #93939b;
+}
+
+
 #new-item-box input[type="text"] {
     max-width: 80%;
+    width: 100%;
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -81,17 +107,4 @@ body {
     font-size: 1rem;
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-nav {
-    text-align: center;
-}
-
-nav li {
-    display: inline;
-    margin-right: 10px;
-}
-
-nav li a {
-    color: #fff;
 }

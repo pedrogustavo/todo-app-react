@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import ListItem from '../components/ListItem'
+import Icon from '../components/Icon'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { addTask, toggleCompleted } from '../redux/todo'
+import { addTask, toggleCompleted, removeTask } from '../redux/todo'
 
 function State () {
     const list = useSelector((state) => state.todo.tasks)
@@ -19,21 +20,28 @@ function State () {
         event.preventDefault()
     }
     const toggleItem = (id) => dispatch(toggleCompleted(id))
+    const removeItem = (item) => {
+        const confirmResult = window.confirm(`Tem certeza que deseja remover: "${item.value}" ?`)
+        if (confirmResult) dispatch(removeTask(item.id))
+    }
 
     return (
         <div id="container">
             <ul id="list">
                 {list.map((item, index) => (
-                    <ListItem key={index} item={item} toggleCompleted={toggleItem} />
+                    <ListItem 
+                        key={index}
+                        item={item}
+                        toggleCompleted={toggleItem}
+                        removeItem={removeItem}
+                    />
                 ))}
             </ul>
             <div id="new-item-box">
                 <form onSubmit={addItem}>
                     <input type="text" value={newValue} onChange={handleChange} placeholder="Digite a nova tarefa..."/>
                     <button type="submit">
-                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" className="svg-inline--fa fa-plus fa-w-14 icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                            <path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path>
-                        </svg>
+                        <Icon name="plus" />
                     </button>
                 </form>
             </div>
